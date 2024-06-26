@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Filtrer les Pokémon</h2>
+  <form>
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Rechercher par nom" [(ngModel)]="filters.name" name="name">
+      </div>
+      <div class="col-md-4">
+        <select class="form-control" [(ngModel)]="filters.category" name="category">
+          <option value="">Toutes les catégories</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control" [(ngModel)]="filters.type" name="type">
+          <option value="">Tous les types</option>
+          <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let pokemon of filteredPokemons()">
+      <div class="card mt-4 mb-4">
+        <img [src]="pokemon.sprites.shiny" class="card-img-top" [alt]="pokemon.name">
+        <div class="card-body">
+          <h5 class="card-title">{{ pokemon.name.fr }}</h5>
+          <p class="card-text">{{ pokemon.category }}</p>
+          <div *ngFor="let poke of pokemon.types">
+            <p class="card-text">{{poke.name}}</p>
+            <img [src]="poke.image" alt=""> 
+          </div>                     
+          <button type="button" class="btn btn-primary mt-3 d-flex justify-content-end" (click)="getSelectPokemon(pokemon)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Détails</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal [pokemonEnfant]="pokemonParent"></app-modal>
+
+<app-formulaire></app-formulaire>
