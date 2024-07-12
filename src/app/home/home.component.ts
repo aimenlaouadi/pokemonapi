@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
 
   getPokemons() {
     this.service.fetchAll().subscribe(data => {
-      this.pokemons = data.slice(0,9);
+      this.pokemons = data;
       this.extractCategoriesAndTypes();
     });
   }
