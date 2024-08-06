@@ -1,17 +1,18 @@
 
   
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="bg-modal">
         <div class="modal-header text-center">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{pokemonEnfant?.name?.fr}}</h1>
+          <h1 class="modal-title fs-5 title" id="staticBackdropLabel">{{pokemonEnfant?.name?.fr}}</h1>
+          <span><h3>#{{pokemonEnfant?.pokedex_id}}</h3></span>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="card mt-4 mb-4 *ngFor"let >
+          <div class="mt-4 mb-4 *ngFor"let >
             <img [src]="pokemonEnfant?.sprites?.regular" alt="">                 
-            <p class="text-center">{{pokemonEnfant?.category}}</p>
+            <p class="text-center">type : {{pokemonEnfant?.category}}</p>
                 
         </div>
         <div class="modal-footer">

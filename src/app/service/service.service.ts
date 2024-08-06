@@ -20,25 +20,4 @@ export class ServiceService {
     return this.http.get<Pokemon>(`${this.url}/${id}`);
   }
 
-  add(pokemon: Pokemon): Observable<Pokemon> {
-    return this.http.post<Pokemon>(this.url, pokemon);
-  }
-
-  delete(id: any): Observable<void> {
-    return this.http.delete<void>(`${this.url}/${id}`);
-  }
-
-  fetchFiltered(filters: { name?: string; category?: string; type?: string }): Observable<Pokemon[]> {
-    let params = new HttpParams();
-    if (filters.name) {
-      params = params.set('name', filters.name);
-    }
-    if (filters.category) {
-      params = params.set('category', filters.category);
-    }
-    if (filters.type) {
-      params = params.set('type', filters.type);
-    }
-    return this.http.get<Pokemon[]>(this.url, { params });
-  }
 }

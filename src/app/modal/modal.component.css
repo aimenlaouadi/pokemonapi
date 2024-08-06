@@ -1,0 +1,9 @@
+.bg-modal{
+    background-image: url(/bg-modal.webp);
+    color:white;
+    font-weight: bold;
+}
+
+.title{
+    font-weight: bold;
+}
